@@ -1,0 +1,25 @@
+<section class="invoice-setup">
+  <form ng-submit="Ctrl.createInvoice()">
+    <h3>Create Invoice</h3>
+    <div class="form-group">
+      <label for="invoicedPerson">Person to Send Invoice To:</label>
+      <input 
+        type="text"
+        name="invoicedPerson"
+        id="invoicedPerson"
+        ng-model="Ctrl.invoicedPerson"
+        class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="invoicedAmount">Amount to Invoice</label>
+      <input 
+        type="text"
+        name="invoicedAmount"
+        id="invoicedAmount"
+        ng-model="Ctrl.invoicedAmount"
+        placeholder="10.00"
+        class="form-control">
+    </div>
+    <button type="submit" class="btn btn-default">Submit Invoice</button>
+  </form>
+</section>
