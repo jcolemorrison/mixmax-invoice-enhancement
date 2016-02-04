@@ -10,22 +10,23 @@ function index(req, res) {
 }
 
 function create(req, res) {
-  // var data = JSON.parse(req.body.params);
-  // console.log(data);
-  if (!req.body || !req.body.invoicedAmount || !req.body.invoicedPerson) {
+
+  var data = req.body.params ? JSON.parse(req.body.params) : false;
+
+  if (!data || !data.invoicedAmount || !data.invoicedPerson) {
     res.status(400).json('Invalid params');
     return;
   }
 
-  if (typeof req.body.invoicedAmount !== 'number') {
+  if (typeof data.invoicedAmount !== 'number') {
     res.status(400).json('Invoiced amount must be a number');
     return;
   }
 
   var htmlString = '' +
   '<div style="background:#f7f7f7; padding: .5em;">' +
-    '<h5>Invoice Amount: $' + req.body.invoicedAmount + '</h5>' + 
-    '<a href="http://localhost:9000/pay-invoice?amount=' + req.body.invoicedAmount + '&customer=' + req.body.invoicedPerson + '">Click here to pay your invoice »</a>' +
+    '<h5>Invoice Amount: $' + data.invoicedAmount + '</h5>' + 
+    '<a href="http://localhost:9000/pay-invoice?amount=' + data.invoicedAmount + '&customer=' + data.invoicedPerson + '">Click here to pay your invoice »</a>' +
   '</div>';
   res.json({
     body: htmlString

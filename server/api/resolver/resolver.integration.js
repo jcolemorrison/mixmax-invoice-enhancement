@@ -42,7 +42,7 @@ describe('Resolver API:', function() {
 
     it('should return a 400 if no params are sent', function(done) {
       this.request
-        .send(null)
+        .send({})
         .expect(400)
         .expect('Content-Type', /json/)
         .end((err, res) => {
@@ -57,7 +57,7 @@ describe('Resolver API:', function() {
 
     it('should return a 400 if invoicedAmount is not a number', function(done) {
       this.request
-        .send({ invoicedAmount: 'nan', invoicedPerson: 'example@example.com'})
+        .send({ params: '{ "invoicedAmount": "nan", "invoicedPerson": "example@example.com"}'})
         .expect(400)
         .expect('Content-Type', /json/)
         .end((err, res) => {
@@ -77,7 +77,7 @@ describe('Resolver API:', function() {
         '<a href="http://localhost:9000/pay-invoice?amount=10.17&customer=example@example.com">Click here to pay your invoice »</a>' +
       '</div>';
       this.request
-        .send({ invoicedAmount: 10.17, invoicedPerson: 'example@example.com'})
+        .send({ params: '{"invoicedAmount": 10.17, "invoicedPerson": "example@example.com"}'})
         .expect(200)
         .expect('Content-Type', /json/)
         .end((err, res) => {
