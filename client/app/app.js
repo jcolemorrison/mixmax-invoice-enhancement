@@ -5,6 +5,7 @@ angular.module('invoiceEnhancementApp', [
   'ngCookies',
   'ngResource',
   'ngSanitize',
+  'ngMessages',
   'ui.router'
 ])
   .config(function($urlRouterProvider, $locationProvider) {
