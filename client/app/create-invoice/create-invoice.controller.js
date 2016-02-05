@@ -11,15 +11,13 @@ angular.module('invoiceEnhancementApp')
     };
 
     Ctrl.createInvoice = function () {
-      console.log('called');
       if (isNaN(parseFloat(Ctrl.invoicedAmount))) {
-        console.log('invalid');
         Ctrl.showAmountFormatError = true;
         return false;
       } else {
         Mixmax.done({
           invoicedPerson: Ctrl.invoicedPerson,
-          invoicedAmount: Ctrl.invoicedAmount,
+          invoicedAmount: parseFloat(Ctrl.invoicedAmount),
           invoicingUser: Ctrl.currentUser
         });
       }
