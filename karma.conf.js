@@ -17,6 +17,7 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
+      'https://js.stripe.com/v2/',
       // bower:js
       'client/bower_components/jquery/dist/jquery.js',
       'client/bower_components/angular/angular.js',
@@ -26,6 +27,7 @@ module.exports = function(config) {
       'client/bower_components/angular-messages/angular-messages.js',
       'client/bower_components/lodash/dist/lodash.compat.js',
       'client/bower_components/angular-ui-router/release/angular-ui-router.js',
+      'client/bower_components/angular-stripe/release/angular-stripe.js',
       'client/bower_components/angular-mocks/angular-mocks.js',
       // endbower
       'client/app/app.js',

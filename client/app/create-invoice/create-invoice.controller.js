@@ -11,7 +11,9 @@ angular.module('invoiceEnhancementApp')
     };
 
     Ctrl.createInvoice = function () {
-      if (!angular.isNumber(Ctrl.invoicedAmount)) {
+      console.log('called');
+      if (isNaN(parseFloat(Ctrl.invoicedAmount))) {
+        console.log('invalid');
         Ctrl.showAmountFormatError = true;
         return false;
       } else {

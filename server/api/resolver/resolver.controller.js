@@ -14,11 +14,13 @@ function create(req, res) {
   var data = req.body.params ? JSON.parse(req.body.params) : false;
 
   if (!data || !data.invoicedAmount || !data.invoicedPerson || !data.invoicingUser) {
+    console.log('invalidParamas');
     res.status(400).json('Invalid params');
     return;
   }
 
-  if (typeof data.invoicedAmount !== 'number') {
+  if (isNaN(data.invoicedAmount)) {
+    console.log(data.invoicedAmount);
     res.status(400).json('Invoiced amount must be a number');
     return;
   }

@@ -1,1 +1,140 @@
-<div>This is the pay-invoice view.</div>
+<section class="pay-invoice">
+  <div
+    ng-if="Ctrl.paymentSuccessMessage"
+    class="alert alert-success" role="alert">
+    Your payment has been successfully processed!
+  </div>
+  <div
+    ng-if="Ctrl.cardFieldsErrorMessage"
+    class="alert alert-danger" role="alert">
+    Please make sure that all credit card fields are filled out.
+  </div>
+  <div
+    ng-if="Ctrl.paymentErrorMessage"
+    class="alert alert-danger" role="alert">
+    There was a problem with your payment, please contact {{Ctrl.user}}.
+  </div>
+  <div
+    ng-if="Ctrl.stripeErrorMessage"
+    class="alert alert-danger" role="alert">
+    {{Ctrl.stripeErrorMessage}}
+  </div>
+  <div class="panel panel-default invoice-box">
+    <div class="panel-heading" >
+      <h3 class="panel-title" >Invoice Details</h3>          
+    </div>
+    <div class="panel-body">
+      <ul class="list-group">
+        <li class="list-group-item">Invoice Total: <span class="text-primary">{{Ctrl.amount}}</span></li>
+        <li class="list-group-item">To: <span class="text-primary">{{Ctrl.customer}}</span></li>
+        <li class="list-group-item">From: <span class="text-primary">{{Ctrl.user}}</span></li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="panel panel-default credit-card-box">
+    <div class="panel-heading display-table" >
+      <div class="row display-tr" >
+        <h3 class="panel-title display-td" >Payment Details</h3>
+        <div class="display-td" >                            
+          <img class="img-responsive pull-right" src="http://i76.imgup.net/accepted_c22e0.png">
+        </div>
+      </div>                    
+    </div>
+    <div class="panel-body">
+      <form
+        ng-submit="Ctrl.chargeCard()"
+        name="paymentForm"
+        role="form"
+        id="paymentForm">
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="form-group">
+              <label for="cardNumber">Card Number</label>
+              <div class="input-group">
+                <input 
+                  type="tel"
+                  class="form-control"
+                  name="cardNumber"
+                  placeholder="1111222233334444"
+                  autocomplete="cc-number"
+                  ng-model="Card.number"
+                  required autofocus
+                />
+                <span class="input-group-addon"><i class="fa fa-credit-card"></i></span>
+              </div>
+            </div>                            
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-4">
+            <div class="form-group">
+              <label for="cardExpiry"><span class="hidden-xs">Exp</span><span class="visible-xs-inline">Exp</span> Month</label>
+              <input 
+                type="tel" 
+                class="form-control" 
+                name="cardExpiry"
+                placeholder="MM"
+                ng-model="Card.exp_month"
+                autocomplete="cc-exp"
+                required 
+              />
+            </div>
+          </div>
+          <div class="col-xs-4">
+            <div class="form-group">
+              <label for="cardExpiry"><span class="hidden-xs">Exp</span><span class="visible-xs-inline">Exp</span> Year</label>
+              <input 
+                type="tel" 
+                class="form-control" 
+                name="cardExpiry"
+                placeholder="YYYY"
+                ng-model="Card.exp_year"
+                autocomplete="cc-exp"
+                required 
+              />
+            </div>
+          </div>
+          <div class="col-xs-4 col-md-4 pull-right">
+            <div class="form-group">
+              <label for="cardCVC">CVC</label>
+              <input 
+                type="tel" 
+                class="form-control"
+                name="cardCVC"
+                placeholder="CVC"
+                ng-model="Card.cvc"
+                autocomplete="cc-csc"
+                required
+              />
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12">
+            <button
+              ng-if="!Ctrl.paid"
+              ng-disabled="paymentForm.$invalid || Ctrl.submitting"
+              class="btn btn-success btn-block"
+              type="submit">
+              <span ng-if="!Ctrl.submitting">Pay Invoice</span>
+              <span ng-if="Ctrl.submitting">Submitting...</span>
+            </button>
+            <button
+              ng-if="Ctrl.paid"
+              ng-disabled="Ctrl.paid"
+              class="btn btn-success btn-block"
+              type="button">
+              Thank You!
+            </button>
+          </div>
+        </div>
+        <div class="row" style="display:none;">
+          <div class="col-xs-12">
+            <p class="payment-errors"></p>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>

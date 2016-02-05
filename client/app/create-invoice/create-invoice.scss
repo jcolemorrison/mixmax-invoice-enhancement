@@ -1,0 +1,16 @@
+.invoice-setup {
+  margin-top: 2rem;
+  .invoice-setup-box,
+  .alert-warning {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  .alert-warning {
+    margin-bottom: 1rem;
+  }
+  .invalid-message {
+    margin-top: .25rem;
+    margin-left: .25rem;
+    opacity: 0.7;
+  }
+}
