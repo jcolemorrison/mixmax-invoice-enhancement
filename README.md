@@ -1,7 +1,5 @@
 # invoice-enhancement
 
-This project was generated with the [Angular Full-Stack Generator](https://github.com/DaftMonk/generator-angular-fullstack) version 3.3.0.
-
 ## Getting Started
 
 ### Prerequisites
@@ -12,7 +10,19 @@ This project was generated with the [Angular Full-Stack Generator](https://githu
 - [Ruby](https://www.ruby-lang.org) and then `gem install sass`
 - [Gulp](http://gulpjs.com/) (`npm install --global gulp`)
 
-### Developing
+### First... you need a stripe account
+
+1. Go to stripe.com and sign up for an account
+
+2. Login to your dashboard -> click on "Account" up top
+
+3. Navigate to "API Keys" and grab your `Test Publishable Key` and paste it in `/client/app/app.js`
+
+4. Grab your `Test Secret Key` and paste it in `/server/api/pay-invoice/pay-invoice.controller.js`
+
+*Yes this isn't ideal... it would be awesome if you could do this from the MIXMAX dashboard instead*
+
+### Steps to Enhance!
 
 1. Run `npm install` to install server dependencies.
 
@@ -20,10 +30,15 @@ This project was generated with the [Angular Full-Stack Generator](https://githu
 
 3. Run `gulp serve` to start the development server. It should automatically open the client in your browser when ready.
 
-## Build & development
+4. Open `Chrome` in insecure mode as documented here http://sdk.mixmax.com/docs/chrome-insecure-content-https-request-blocked-when-developing-locally
 
-Run `grunt build` for building and `grunt serve` for preview.
+5. Create and email and select `Invoice` from the enhancements button
 
-## Testing
+6. Enter in the email and amount and click enter and send your email!
 
-Running `npm test` will run the unit tests with karma.
+7. Receive the email as the person - open it up and pay!
+
+### Notes
+
+Obviously, this is just using test keys and ideally would be hosted entirely on Mixmax's end.
+

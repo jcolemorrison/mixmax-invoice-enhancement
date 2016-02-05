@@ -19,6 +19,6 @@ angular.module('invoiceEnhancementApp', [
     /**
      * ENTER STRIPE CLIENT KEY HERE (TODO MAKE IT AUTO FROM MIXMAX YEAH?)
      */
-    stripeProvider.setPublishableKey('pk_test_N4fSqOFKTAr6dg7G8ylrl9pQ'); // <----------
+    stripeProvider.setPublishableKey('YOUR TEST KEY HERE'); // <----------
     /* END STRIPE CLIENT INSERTION */
   });

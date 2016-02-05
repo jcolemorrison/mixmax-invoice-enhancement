@@ -5,7 +5,11 @@
 
 'use strict';
 
-var stripe = require('stripe')('sk_test_wWfkUMUqXyV7hYhIJEpF2J1j');
+/**
+ * STRIPE SECRET KEY HERE
+ */
+var stripe = require('stripe')('YOUR SECRET KEY HERE');
+/* END STRIPE KEY */
 
 // Gets a list of PayInvoices
 function index(req, res) {
