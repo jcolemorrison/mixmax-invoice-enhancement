@@ -22,6 +22,20 @@
 
 *Yes this isn't ideal... it would be awesome if you could do this from the MIXMAX dashboard instead*
 
+### Setup with Mixmax
+
+1. Go to Mixmax dashboard -> integrations
+
+2. Click `Add Enhancement`
+
+3. Name it `invoice`
+
+4. Tooltip whatever you'd like
+
+5. Editor URL: `http://localhost:9000/create-invoice`
+
+5. Resolver URL: `http://localhost:9000/api/resolver`
+
 ### Steps to Enhance!
 
 1. Run `npm install` to install server dependencies.
