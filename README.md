@@ -38,6 +38,10 @@
 
 7. Receive the email as the person - open it up and pay!
 
+### Other
+
+- Use `gulp test`, `gulp test:client`, `gulp test:server` to run tests
+
 ### Notes
 
 Obviously, this is just using test keys and ideally would be hosted entirely on Mixmax's end.
