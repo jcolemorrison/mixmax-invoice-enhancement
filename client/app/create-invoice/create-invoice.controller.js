@@ -1,23 +1,27 @@
 'use strict';
 
 angular.module('invoiceEnhancementApp')
-  .controller('CreateInvoiceCtrl', function ($scope) {
+  .controller('CreateInvoiceCtrl', function ($scope, $location) {
     var Ctrl = $scope.Ctrl = {};
 
     Ctrl.showAmountFormatError = false;
 
+    Ctrl.getCurrentUser = () => {
+      Ctrl.currentUser = $location.search().user;
+    };
+
     Ctrl.createInvoice = function () {
-      console.log('called');
       if (!angular.isNumber(Ctrl.invoicedAmount)) {
-        console.log('error');
         Ctrl.showAmountFormatError = true;
         return false;
       } else {
-        console.log('success');
         Mixmax.done({
           invoicedPerson: Ctrl.invoicedPerson,
-          invoicedAmount: Ctrl.invoicedAmount
+          invoicedAmount: Ctrl.invoicedAmount,
+          invoicingUser: Ctrl.currentUser
         });
       }
     };
+
+    Ctrl.getCurrentUser();
   });

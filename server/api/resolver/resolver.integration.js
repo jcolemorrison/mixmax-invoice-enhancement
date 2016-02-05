@@ -57,7 +57,7 @@ describe('Resolver API:', function() {
 
     it('should return a 400 if invoicedAmount is not a number', function(done) {
       this.request
-        .send({ params: '{ "invoicedAmount": "nan", "invoicedPerson": "example@example.com"}'})
+        .send({ params: '{ "invoicingUser": "bob@example.com", "invoicedAmount": "nan", "invoicedPerson": "example@example.com"}'})
         .expect(400)
         .expect('Content-Type', /json/)
         .end((err, res) => {
@@ -72,12 +72,14 @@ describe('Resolver API:', function() {
 
     it('should return a link with correct invoice information if params are sent', function(done) {
       var htmlString = '' +
-      '<div style="background:#f7f7f7; padding: .5em;">' +
-        '<h5>Invoice Amount: $10.17</h5>' + 
-        '<a href="http://localhost:9000/pay-invoice?amount=10.17&customer=example@example.com">Click here to pay your invoice »</a>' +
+      '<div style="background:#f9f9f9; padding: 1em; font-family: \'Helvetica Neue\', Helvetica, Arial, sans-serif; width: 300px;">' +
+        '<h5 style="margin: 0;">Invoice Amount of $10.17 from:</h5>' +
+        '<hr style="margin: 8px 0;" />' +
+        '<h5 style="margin: 0 0 8px 0;">bob@example.com</h5>' +
+        '<a style="font-size: 14px; color: #04A748;" href="http://localhost:9000/pay-invoice?amount=10.17&customer=example@example.com&user=bob@example.com">Click here to pay your invoice »</a>' +
       '</div>';
       this.request
-        .send({ params: '{"invoicedAmount": 10.17, "invoicedPerson": "example@example.com"}'})
+        .send({ params: '{ "invoicingUser": "bob@example.com", "invoicedAmount": 10.17, "invoicedPerson": "example@example.com"}'})
         .expect(200)
         .expect('Content-Type', /json/)
         .end((err, res) => {
