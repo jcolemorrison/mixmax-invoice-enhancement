@@ -11,7 +11,7 @@ angular.module('invoiceEnhancementApp', [
 ])
   .config(function($urlRouterProvider, $locationProvider, stripeProvider) {
     $urlRouterProvider
-      .otherwise('/');
+      .otherwise('/create-invoice');
 
     $locationProvider.html5Mode(true);
 

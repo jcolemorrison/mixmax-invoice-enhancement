@@ -52,6 +52,11 @@
 
 7. Receive the email as the person - open it up and pay!
 
+    - Use `4242424242424242` as the card number (it's a test card)
+    - any month number (i.e. `09`)
+    - any year after 2016 (i.e. .... 2016)
+    - any cvc combo (i.e. 123)
+
 ### Other
 
 - Use `gulp test`, `gulp test:client`, `gulp test:server` to run tests
