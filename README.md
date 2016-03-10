@@ -1,5 +1,7 @@
 # invoice-enhancement
 
+This is an integration for MixMax that allows users to invoice via Stripe directly from their email.
+
 ## Getting Started
 
 ### Prerequisites
@@ -60,8 +62,4 @@
 ### Other
 
 - Use `gulp test`, `gulp test:client`, `gulp test:server` to run tests
-
-### Notes
-
-Obviously, this is just using test keys and ideally would be hosted entirely on Mixmax's end.
 
